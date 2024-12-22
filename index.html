@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Web App</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        #start-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: lightblue;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #start-button:hover {
+            background-color: deepskyblue;
+        }
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border: 10px solid transparent;
+            border-image: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta, red) 1;
+            border-radius: 20px;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        a-scene {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-button">Made by Moshe Golan</button>
+    <div class="frame">
+        <a-scene embedded arjs>
+            <!-- Define triggers and their respective models -->
+            <a-marker preset="custom" type="pattern" url="trigger1.patt">
+                <a-image src="model1.png" position="0 0.5 0"></a-image>
+            </a-marker>
+
+            <a-marker preset="custom" type="pattern" url="trigger2.patt">
+                <a-image src="model2.png" position="0 0.5 0"></a-image>
+            </a-marker>
+
+            <a-marker preset="custom" type="pattern" url="trigger3.patt">
+                <a-image src="model3.png" position="0 0.5 0"></a-image>
+            </a-marker>
+
+            <!-- Add the rest of the markers -->
+            <a-marker preset="custom" type="pattern" url="trigger4.patt">
+                <a-image src="model4.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger5.patt">
+                <a-image src="model5.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger6.patt">
+                <a-image src="model6.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger7.patt">
+                <a-image src="model7.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger8.patt">
+                <a-image src="model8.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger9.patt">
+                <a-image src="model9.png" position="0 0.5 0"></a-image>
+            </a-marker>
+            <a-marker preset="custom" type="pattern" url="trigger10.patt">
+                <a-image src="model10.png" position="0 0.5 0"></a-image>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </div>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', () => {
+            alert('Camera enabled. Point to a trigger to see the model.');
+        });
+    </script>
+</body>
+</html>
